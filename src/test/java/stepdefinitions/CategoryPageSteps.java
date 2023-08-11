@@ -8,11 +8,12 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.Exceptions.DefaultNameNotFoundAssertionError;
-import org.Questions.ValidateAlertQuestion;
 import org.Questions.ValidateCategoryQuestion;
+import org.tasks.ClickOnProductFromTheListTask;
+import org.tasks.VerifyItemInProductDetailsTask;
 import org.userInterface.LandingPage;
 
-public class CategoriesSteps {
+public class CategoryPageSteps {
     @Before
     public void setStage() {
         OnStage.setTheStage(new OnlineCast());
@@ -23,13 +24,16 @@ public class CategoriesSteps {
         OnStage.theActor("usuario").attemptsTo(Click.on(LandingPage.CATEGORY_BUTTON.of(category)));
     }
 
-    @And("^(.*) products will showed up$")
+    @And("^The list of (.*) will show up$")
     public void productsWillShowedUp(String category) {
         OnStage.theActor("usuario").attemptsTo(Click.on(LandingPage.CATEGORY_BUTTON.of(category)));
         OnStage.theActor("usuario").should(GivenWhenThen.seeThat(ValidateCategoryQuestion.verify(category))
                 .orComplainWith(DefaultNameNotFoundAssertionError.class, DefaultNameNotFoundAssertionError.INVALID_NAME));
-        ;
-
     }
 
+    @And("^user clicks on item (.*)$")
+    public void userClickOnItem(String item) {
+        OnStage.theActor("usuario").attemptsTo(ClickOnProductFromTheListTask.click(item),
+                VerifyItemInProductDetailsTask.verify(item));
+    }
 }

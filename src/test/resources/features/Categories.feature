@@ -1,28 +1,23 @@
 @Categories
-Feature: Categories
+Feature: Select Categories
 
-  Scenario: Sign up
-    Given The user has registered on the website
-
-  Scenario: User login with registered username and password
-
-    Given user already on landing page
-    When user click on Log in menu button
-    And user inputs registered username and registered password
-    Then user click Log in button
-    And user login successfully
+  Background: Sign up and login
+    Given that user already is on landing page
+    And user does Sign up
+    And verify that a pop-up appears Sign up successful. indicating successful registration
+    And user inputs registered username and registered password and validate session
 
   Scenario: User want to select phones on categories
-    Given user already on landing page
+    Given that user already is on landing page
     When click on Phones button on the category field
-    And Phones products will showed up
+    Then The list of Phones will show up
 
   Scenario: User want to select laptops on categories
-    Given user already on landing page
+    Given that user already is on landing page
     When click on Laptops button on the category field
-    And Laptops products will showed up
+    Then The list of Laptops will show up
 
   Scenario: User want to select monitors on categories
-    Given user already on landing page
+    Given that user already is on landing page
     When click on Monitors button on the category field
-    And Monitors products will showed up
+    Then The list of Monitors will show up

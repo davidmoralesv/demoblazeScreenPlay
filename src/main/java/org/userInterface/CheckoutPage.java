@@ -5,9 +5,11 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class CheckoutPage extends PageObject {
-    public static Target SONY_VAIO_I5 = Target.the("Sony Vaio I5").located(By.xpath("//a[.='Sony vaio i5']"));
-    public static Target CART_MENU_BUTTON = Target.the("Cart Menu Button").located(By.xpath("//a[@id='cartur']"));
-    public static Target SAMSUNG_GALAXY_S6_BUTTON = Target.the("Samsung Galaxy S6 Button").located(By.xpath("//a[.='Samsung galaxy s6']"));
+    public static Target PLACE_ORDER_TEXTBOX = Target.the("Place order Textbox").locatedBy("//input[@id='{0}']");
 
+    public static Target SUCCESSFUL_POPUP_MESSAGE = Target.the("Successful Popup Message").located(By.xpath("//p[contains(@class,'lead text-muted')]"));
 
+    public static Target PURCHASE_BUTTON = Target.the("Purchase Button").located(By.xpath("//button[@onclick='purchaseOrder()']"));
+
+    public static Target OK_BUTTON = Target.the("Ok Button").located(By.xpath("//button[text()='OK']"));
 }

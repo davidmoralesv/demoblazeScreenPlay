@@ -7,10 +7,10 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.userInterface.LoginPage;
 
-public class LoginSuccessVerification implements Task {
+public class VerifyLoginSuccessTask implements Task {
 
-    public static LoginSuccessVerification verify() {
-        return Tasks.instrumented(LoginSuccessVerification.class);
+    public static VerifyLoginSuccessTask verify() {
+        return Tasks.instrumented(VerifyLoginSuccessTask.class);
     }
 
     @Override
@@ -19,6 +19,6 @@ public class LoginSuccessVerification implements Task {
     }
 
     private Question<Boolean> theSuccessVerificationIsVisible() {
-        return actor -> LoginPage.LOGIN_SUCCESS_VERIFICATION.resolveFor(actor).isCurrentlyVisible();
+        return actor -> LoginPage.WELCOME_ANCHOR.resolveFor(actor).isCurrentlyVisible();
     }
 }

@@ -9,7 +9,7 @@ public class LoginPage extends PageObject {
     public static Target USER_NAME_LOGIN_TEXTBOX = Target.the("Username Login Textbox").located(By.xpath("//input[@id='loginusername']"));
     public static Target PASSWORD_LOGIN_TEXTBOX = Target.the("Password Login Textbox").located(By.xpath("//input[@id='loginpassword']"));
     public static Target LOGIN_BUTTON = Target.the("Login Button").located(By.xpath("//button[.='Log in']"));
-    public static Target LOGIN_SUCCESS_VERIFICATION = Target.the("Login Success Verification").located(By.xpath("//a[@id='cat']"));
+    public static Target WELCOME_ANCHOR = Target.the("Login Success Verification").located(By.xpath("//a[@id='nameofuser' and contains(.,'Welcome')]"));
 
 
 }

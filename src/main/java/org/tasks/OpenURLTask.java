@@ -12,10 +12,10 @@ import java.io.IOException;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class AbrirURL implements Task {
+public class OpenURLTask implements Task {
 
-    public static AbrirURL click() {
-        return Tasks.instrumented(AbrirURL.class);
+    public static OpenURLTask click() {
+        return Tasks.instrumented(OpenURLTask.class);
     }
 
     @Override

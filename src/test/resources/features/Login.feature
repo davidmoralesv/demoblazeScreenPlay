@@ -1,37 +1,37 @@
+#Autor: David Morales Valencia
+#Email: davidmoralv@gmail.com
+#language: en
+
 @Login
-Feature: Login
+Feature: Validate Login
 
   Scenario: Sign up
-    Given The user has registered on the website
+    Given that user already is on landing page
+    And user does Sign up
 
   Scenario: User login with registered username and password
-
-    Given user already on landing page
-    When user click on Log in menu button
+    Given that user already is on landing page
+    When user clicks on the login menu
     And user inputs registered username and registered password
-    Then user click Log in button
-    And user login successfully
-
+    And user clicks on the Log button
+    Then user verifies the successful login
 
   Scenario Outline: User login with wrong password
-
-    Given user already on landing page
-    When user click on Log in menu button
+    Given that user already is on landing page
+    When user clicks on the login menu
     And user inputs username and inputs wrong password
-    Then user click Log in button
-    And pop up showed with message <message>
+    And user clicks on the Log button
+    Then pop up is showed with message <message>
     Examples:
       | message         |
       | Wrong password. |
 
-
   Scenario Outline: User login with unregistered username
-
-    Given user already on landing page
-    When user click on Log in menu button
+    Given that user already is on landing page
+    When user clicks on the login menu
     And user inputs wrong username and inputs password
-    Then user click Log in button
-    And pop up showed with message <message>
+    And user clicks on the Log button
+    Then pop up is showed with message <message>
     Examples:
       | message              |
       | User does not exist. |

@@ -17,14 +17,13 @@ public class ValidateAlertQuestion implements Question<Boolean> {
         this.text = text;
     }
 
-    public static ValidateAlertQuestion verify(String text)
-    {
+    public static ValidateAlertQuestion verify(String text) {
         return new ValidateAlertQuestion(text);
     }
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        new WaitTimeUnit(TimeUnit.SECONDS).waiting(3);
+        new WaitTimeUnit(TimeUnit.SECONDS).waiting(1);
         WebDriver webDriver = BrowseTheWeb.as(actor).getDriver();
         Alert alert = webDriver.switchTo().alert();
         String alertText = alert.getText();
