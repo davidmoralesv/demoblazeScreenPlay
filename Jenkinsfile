@@ -12,7 +12,7 @@ pipeline{
 		 	steps {
 				 checkout([$class: 'GitSCM', branches: [[name: "main"]],
                                           doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [
-                                        [credentialsId: "davidmoralesv", url: "https://github.com/davidmoralesv/demoblazeScreenPlay.git"]
+                                        [url: "https://github.com/davidmoralesv/demoblazeScreenPlay.git"]
                                 ]])
 			}
 		}
@@ -20,7 +20,7 @@ pipeline{
 			steps {
 				script {
 					try {
-						bat "gradle clean test  --tests \"runners.DemoBlazeRunner\" aggregate"
+						bat ".\gradle clean test  --tests \"runners.DemoBlazeRunner\" aggregate"
 						echo 'Test Ejecutados sin Fallo'
 						currentBuild.result = 'SUCCESS'
 					}
