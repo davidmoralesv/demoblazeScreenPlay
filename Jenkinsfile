@@ -20,7 +20,7 @@ pipeline{
 			steps {
 				script {
 					try {
-						bat "./gradle clean test  --tests \"runners.DemoBlazeRunner\" aggregate"
+						bat "./gradlew clean test  --tests \"runners.DemoBlazeRunner\" aggregate"
 						echo 'Test Ejecutados sin Fallo'
 						currentBuild.result = 'SUCCESS'
 					}
