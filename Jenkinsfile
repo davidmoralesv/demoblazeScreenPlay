@@ -20,7 +20,7 @@ pipeline{
 			steps {
 				script {
 					try {
-						bat "./gradlew clean test"
+						bat "./gradlew clean test aggregate"
 						echo 'Test Ejecutados sin Fallo'
 						currentBuild.result = 'SUCCESS'
 					}
