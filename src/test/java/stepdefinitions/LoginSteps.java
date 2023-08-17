@@ -20,6 +20,7 @@ public class LoginSteps {
     @Before
     public void setStage() {
         OnStage.setTheStage(new OnlineCast());
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
     }
 
     @When("^user clicks on the login menu$")

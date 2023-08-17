@@ -42,7 +42,6 @@ dependencies {
     testImplementation group: 'junit', name: 'junit', version: "${junitVersion}"
     implementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
     testImplementation 'junit:junit:4.13.1'
-    testImplementation("io.github.bonigarcia:webdrivermanager:5.4.1")
 }
 
 
