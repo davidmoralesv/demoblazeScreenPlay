@@ -23,12 +23,13 @@ public class ValidateAlertQuestion implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        new WaitTimeUnit(TimeUnit.SECONDS).waiting(1);
+        new WaitTimeUnit(TimeUnit.SECONDS).waiting(2);
         WebDriver webDriver = BrowseTheWeb.as(actor).getDriver();
         Alert alert = webDriver.switchTo().alert();
         String alertText = alert.getText();
         Boolean isEqualText = alertText.equals(this.text);
         alert.accept();
+        new WaitTimeUnit(TimeUnit.SECONDS).waiting(2);
         return isEqualText;
     }
 }

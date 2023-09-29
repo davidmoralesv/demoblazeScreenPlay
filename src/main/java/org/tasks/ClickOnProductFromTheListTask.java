@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.userInterface.LandingPage;
 
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class ClickOnProductFromTheListTask implements Task {
 
@@ -23,7 +23,11 @@ public class ClickOnProductFromTheListTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(WaitUntil.the(LandingPage.CONTENEDOR, isVisible()),
+        actor.attemptsTo(WaitUntil.the(LandingPage.PRODUCT_STORE_NAME, isVisible()),
+                WaitUntil.the(LandingPage.CONTENEDOR, isVisible()),
+                WaitUntil.the(LandingPage.ITEM.of(item), isPresent()),
+                WaitUntil.the(LandingPage.ITEM.of(item), isVisible()),
+                WaitUntil.the(LandingPage.ITEM.of(item), isClickable()),
                 Click.on(LandingPage.ITEM.of(item)));
     }
 }

@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.userInterface.LandingPage;
 
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ValidateCategoryQuestion implements Question<Boolean> {
@@ -28,20 +29,18 @@ public class ValidateCategoryQuestion implements Question<Boolean> {
         String LAPTOP = "Dell";
         String MONITOR = "monitor";
         boolean isCategoryVisible = false;
-
+        actor.attemptsTo(WaitUntil.the(LandingPage.CATEGORY_VERIFICATION, isPresent()),
+                WaitUntil.the(LandingPage.CATEGORY_VERIFICATION, isVisible()));
         switch (category) {
             case "Phones":
-                actor.attemptsTo(WaitUntil.the(LandingPage.CATEGORY_VERIFICATION, isVisible()));
                 isCategoryVisible = LandingPage.CATEGORY_VERIFICATION.resolveAllFor(actor).map(WebElementFacade::getText).stream().anyMatch(p -> p.contains(PHONE));
                 break;
 
             case "Laptops":
-                actor.attemptsTo(WaitUntil.the(LandingPage.CATEGORY_VERIFICATION, isVisible()));
                 isCategoryVisible = LandingPage.CATEGORY_VERIFICATION.resolveAllFor(actor).map(WebElementFacade::getText).stream().anyMatch(p -> p.contains(LAPTOP));
                 break;
 
             case "Monitors":
-                actor.attemptsTo(WaitUntil.the(LandingPage.CATEGORY_VERIFICATION, isVisible()));
                 isCategoryVisible = LandingPage.CATEGORY_VERIFICATION.resolveAllFor(actor).map(WebElementFacade::getText).stream().anyMatch(p -> p.contains(MONITOR));
                 break;
         }

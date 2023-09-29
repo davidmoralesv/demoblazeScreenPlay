@@ -50,30 +50,36 @@ public class LoginUserNameAndPasswordTask implements Task {
                 User.setUsername(username);
                 User.setPassword(username);
                 actor.attemptsTo(WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isVisible()),
+                        WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isClickable()),
                         SendKeys.of(User.getUsername()).into(LoginPage.USER_NAME_LOGIN_TEXTBOX),
                         SendKeys.of(User.getPassword()).into(LoginPage.PASSWORD_LOGIN_TEXTBOX));
                 break;
 
             case REGISTERED:
                 actor.attemptsTo(WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isVisible()),
+                        WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isClickable()),
                         SendKeys.of(User.getUsername()).into(LoginPage.USER_NAME_LOGIN_TEXTBOX),
                         SendKeys.of(User.getPassword()).into(LoginPage.PASSWORD_LOGIN_TEXTBOX));
                 break;
 
             case BY_PARAMETERS:
                 actor.attemptsTo(WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isVisible()),
+                        WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isClickable()),
                         SendKeys.of(this.username).into(LoginPage.USER_NAME_LOGIN_TEXTBOX),
                         SendKeys.of(this.password).into(LoginPage.PASSWORD_LOGIN_TEXTBOX));
                 break;
 
             case WRONG_USERNAME:
-                actor.attemptsTo(SendKeys.of(User.getUsername().concat(WRONG))
+                actor.attemptsTo(WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isVisible()),
+                        WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isClickable()),
+                        SendKeys.of(User.getUsername().concat(WRONG))
                                 .into(LoginPage.USER_NAME_LOGIN_TEXTBOX),
                         SendKeys.of(User.getPassword()).into(LoginPage.PASSWORD_LOGIN_TEXTBOX));
                 break;
 
             case WRONG_PASSWORD:
                 actor.attemptsTo(WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isVisible()),
+                        WaitUntil.the(LoginPage.USER_NAME_LOGIN_TEXTBOX, isClickable()),
                         SendKeys.of(User.getUsername()).into(LoginPage.USER_NAME_LOGIN_TEXTBOX),
                         SendKeys.of(User.getPassword().concat(WRONG)).into(LoginPage.PASSWORD_LOGIN_TEXTBOX));
                 break;

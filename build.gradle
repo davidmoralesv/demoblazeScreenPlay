@@ -44,6 +44,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
 }
 
+serenity{
+    requirementsBaseDir="features"
+    reports = ["single-page-html"]
+}
 
 test.finalizedBy(aggregate)
 gradle.startParameter.continueOnFailure = true

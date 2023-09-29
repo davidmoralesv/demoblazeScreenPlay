@@ -8,6 +8,7 @@ Feature: Validate Login
   Scenario: Sign up
     Given that user already is on landing page
     And user does Sign up
+    Then verify that a pop-up appears Sign up successful. indicating successful registration
 
   Scenario: User login with registered username and password
     Given that user already is on landing page

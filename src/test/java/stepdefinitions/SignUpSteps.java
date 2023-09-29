@@ -14,6 +14,7 @@ import org.tasks.OpenURLTask;
 import org.tasks.SignUpTask;
 import org.userInterface.LandingPage;
 
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SignUpSteps {
@@ -25,7 +26,10 @@ public class SignUpSteps {
     @Given("that user already is on landing page")
     public void userAlreadyOnLandingPage() {
         OnStage.theActor("usuario").attemptsTo(OpenURLTask.click(),
-                WaitUntil.the(LandingPage.PRODUCT_STORE_NAME, isVisible()));
+                WaitUntil.the(LandingPage.PRODUCT_STORE_NAME, isPresent()),
+                WaitUntil.the(LandingPage.PRODUCT_STORE_NAME, isVisible()),
+                WaitUntil.the(LandingPage.CONTENEDOR, isPresent()),
+                WaitUntil.the(LandingPage.CONTENEDOR, isVisible()));
     }
 
     @When("user does Sign up")

@@ -4,7 +4,7 @@ Feature: Fill Place Order
   Scenario: Sign up and login
     Given that user already is on landing page
     And user does Sign up
-    And verify that a pop-up appears Sign up successful. indicating successful registration
+    Then verify that a pop-up appears Sign up successful. indicating successful registration
 
   Scenario Outline: User wants to add to cart item after do valid login
     Given that user already is on landing page
@@ -18,7 +18,7 @@ Feature: Fill Place Order
     And pop up is showed with message Product added.
     And user clicks on Cart Menu
     And user verifies products in cart
-    And user clicks on Place Order button
+    Then user clicks on Place Order button
 
     Given that user already is on Place Order
     When user fills the name field with the value <name>
