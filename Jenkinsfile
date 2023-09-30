@@ -20,7 +20,7 @@ pipeline{
 			steps {
 				script {
 					try {
-						bat "./gradlew clean test aggregate"
+						sh "./gradlew clean test aggregate"
 						echo 'Test Ejecutados sin Fallo'
 						currentBuild.result = 'SUCCESS'
 					}
@@ -35,7 +35,7 @@ pipeline{
 			steps {
 				script {
 				    try {
-						bat " rename \"${WORKSPACE}\\target\\site\\serenity\" serenity_${timestamp}"
+						sh " rename \"${WORKSPACE}\\target\\site\\serenity\" serenity_${timestamp}"
 		                echo 'Backup de evidencias realizado con exito'
 
 		                publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${WORKSPACE}\\target\\site\\serenity_${timestamp}", reportFiles: 'index.html', reportName: 'Evidencias', reportTitles: 'Evidencias Pruebas Regresion'])
