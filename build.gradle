@@ -32,7 +32,7 @@ dependencies {
     implementation "net.serenity-bdd:serenity-junit:${versionSerenity}"
     implementation "net.serenity-bdd:serenity-core:${versionSerenity}"
     implementation "net.serenity-bdd:serenity-report-resources:${versionSerenity}"
-    implementation 'net.serenity-bdd:serenity-ensure:2.0.80'
+    implementation "net.serenity-bdd:serenity-ensure:${versionSerenity}"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.5.3'
 
